@@ -25,7 +25,7 @@ c2 = C2(n=5)
 print(c2.add_number(m=4))
 
 
-class C2Adapter:
+class C2Adapter1:
     def __init__(self, element: int):
         self.c2 = C2(n=element)
 
@@ -33,7 +33,15 @@ class C2Adapter:
         return self.c2.add_number(m=n)
 
 
-c3 = C2Adapter(element=5)
+class C2Adapter2(C2):
+    def __init__(self, element: int):
+        super().__init__(n=element)
+
+    def get_answer(self, n: int):
+        return self.add_number(m=n)
+
+
+c3 = C2Adapter2(element=5)
 print(c3.get_answer(n=4))
 
 # Но лучше написать интьерфейс
