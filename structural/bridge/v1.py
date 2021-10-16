@@ -26,7 +26,7 @@ class YellowColor(Color):
         super().__init__(255, 255, 0)
 
 
-class Car:
+class Car(ABC):
     def __init__(self, color: Color):
         self.color = color
 
