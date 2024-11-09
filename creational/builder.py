@@ -9,21 +9,28 @@ class Point:
     def __str__(self):
         return f"({self.x}, {self.y})"
 
-    class Builder:
 
-        def __init__(self):
-            self.point = Point(0, 0)
+class PointBuilder:
 
-        def up(self, a: int) -> Point.Builder:
-            self.point.y += a
-            return self
+    def __init__(self):
+        self.point = Point(0, 0)
 
-        def right(self, a: int) -> Point.Builder:
-            self.point.x += a
-            return self
+    def up(self, a: int) -> PointBuilder:
+        self.point.y += a
+        return self
 
-        def build(self) -> Point:
-            return self.point
+    def right(self, a: int) -> PointBuilder:
+        self.point.x += a
+        return self
+
+    def build(self) -> Point:
+        return self.point
 
 
-print(Point.Builder().up(5).right(4).build())
+def main():
+    point = PointBuilder().up(5).right(4).build()
+    print(point)
+
+
+if __name__ == '__main__':
+    main()
