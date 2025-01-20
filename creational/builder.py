@@ -28,7 +28,8 @@ class PointBuilder:
 
 
 def main():
-    point = PointBuilder().up(5).right(4).build()
+    builder = PointBuilder()
+    point = builder.up(5).right(4).build()
     print(point)
 
 
